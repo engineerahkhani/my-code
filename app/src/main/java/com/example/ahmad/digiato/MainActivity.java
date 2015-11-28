@@ -66,70 +66,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		// set toolbar
 
-		listView = (ListView) findViewById(R.id.list);
-		adapter = new CustomListAdapter(this, movieList);
-		listView.setAdapter(adapter);
-
-		pDialog = new ProgressDialog(this);
-		// Showing progress dialog before making http request
-		pDialog.setMessage("Loading...");
-		pDialog.show();
-
-		// changing action bar color
-
-
-		// Creating volley request obj
-		JsonArrayRequest movieReq = new JsonArrayRequest(url,
-				new Response.Listener<JSONArray>() {
-					@Override
-					public void onResponse(JSONArray response) {
-						Log.d(TAG, response.toString());
-						hidePDialog();
-
-						// Parsing json
-						for (int i = 0; i < response.length(); i++) {
-							try {
-
-								JSONObject obj = response.getJSONObject(i);
-								Movie movie = new Movie();
-								movie.setTitle(obj.getString("title"));
-								movie.setThumbnailUrl(obj.getString("image"));
-								movie.setRating(((Number) obj.get("rating"))
-										.doubleValue());
-								movie.setYear(obj.getInt("releaseYear"));
-
-								// Genre is json array
-								JSONArray genreArry = obj.getJSONArray("genre");
-								ArrayList<String> genre = new ArrayList<String>();
-								for (int j = 0; j < genreArry.length(); j++) {
-									genre.add((String) genreArry.get(j));
-								}
-								movie.setGenre(genre);
-
-								// adding movie to movies array
-								movieList.add(movie);
-
-							} catch (JSONException e) {
-								e.printStackTrace();
-							}
-
-						}
-
-						// notifying list adapter about data changes
-						// so that it renders the list view with updated data
-						adapter.notifyDataSetChanged();
-					}
-				}, new Response.ErrorListener() {
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						VolleyLog.d(TAG, "Error: " + error.getMessage());
-						hidePDialog();
-
-					}
-				});
-
-		// Adding request to request queue
-		AppController.getInstance().addToRequestQueue(movieReq);
 
 		//navigation drawer goes here
 		mTitle = mDrawerTitle = getTitle();
@@ -291,7 +227,6 @@ public class MainActivity extends Activity {
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, fragment).commit();
-
 			// update selected item and title, then close the drawer
 			mDrawerList.setItemChecked(position, true);
 			mDrawerList.setSelection(position);
