@@ -7,7 +7,7 @@
         android:allowBackup="true"
 
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        >
         <activity
             android:name="com.example.ahmad.digiato.MainActivity"
             android:label="@string/app_name" >

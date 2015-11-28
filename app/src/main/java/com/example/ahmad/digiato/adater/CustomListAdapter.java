@@ -1,8 +1,5 @@
 package com.example.ahmad.digiato.adater;
 
-
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,10 +10,11 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-
 import com.example.ahmad.digiato.app.AppController;
 import com.example.ahmad.digiato.model.Movie;
 import com.example.ahmad.simplevolleytest.R;
+
+import java.util.List;
 
 public class CustomListAdapter extends BaseAdapter {
 	private Activity activity;
