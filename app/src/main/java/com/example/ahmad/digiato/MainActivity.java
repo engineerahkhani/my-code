@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -24,11 +25,14 @@ import com.example.ahmad.digiato.model.Movie;
 import com.example.ahmad.digiato.model.NavDrawerItem;
 import com.example.ahmad.simplevolleytest.R;
 
-public class MainActivity extends Activity implements MovieListFragment.Callbacks {
+
+public class MainActivity extends Activity implements MovieListFragment.Callbacks{
+
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-
+	public static final String MOVIE_BUNDLE = "FLOWER_BUNDLE";
+	private static final int REQUEST_CODE = 1001;
 	// nav drawer title
 	private CharSequence mDrawerTitle;
 
@@ -148,7 +152,12 @@ public class MainActivity extends Activity implements MovieListFragment.Callback
 	}
 
 	@Override
-	public void onItemSelected(Movie movie) {
+
+	public void OnItemSelected(Movie movie) {
+		Bundle bundle = movie.toBundle();
+		Intent intent = new Intent(this, MovieDetailActivity.class);
+		intent.putExtra(MOVIE_BUNDLE,bundle);
+		startActivityForResult(intent,REQUEST_CODE);
 
 	}
 	//navigation drawer goes here
@@ -239,4 +248,5 @@ public class MainActivity extends Activity implements MovieListFragment.Callback
 		mTitle = title;
 		getActionBar().setTitle(mTitle);
 	}
+
 }

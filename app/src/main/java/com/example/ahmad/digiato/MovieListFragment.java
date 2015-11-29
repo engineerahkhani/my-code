@@ -1,5 +1,6 @@
 package com.example.ahmad.digiato;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.ListFragment;
 import android.app.ProgressDialog;
@@ -30,6 +31,7 @@ public class MovieListFragment extends ListFragment {
     // Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    private Callbacks callbacks;
     // Movies json url
     private static final String url = "http://api.androidhive.info/json/movies.json";
     private ProgressDialog pDialog;
@@ -121,6 +123,20 @@ public class MovieListFragment extends ListFragment {
         }
     }
     public interface Callbacks{
-        public void onItemSelected(Movie movie);
+
+        public void OnItemSelected(Movie movie);
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Movie movie = movieList.get(position);
+        callbacks.OnItemSelected(movie);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.callbacks = (Callbacks) activity;
+
     }
 }
