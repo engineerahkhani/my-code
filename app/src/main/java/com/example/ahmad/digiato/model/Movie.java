@@ -85,7 +85,7 @@ public class Movie {
 		b.putString(THUMBNAILURL, this.thumbnailUrl);
 		b.putDouble(RATING, this.rating);
 		b.putInt(YEAR, this.year);
-		b.putStringArrayList(RATING,this.genre);
+		b.putStringArrayList(GENRE,this.genre);
 		return b;
 	}
 

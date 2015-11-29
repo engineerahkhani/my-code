@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:gravity="center|top">
 
-    <ImageView
+    <com.android.volley.toolbox.NetworkImageView
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:id="@+id/MovieImageView" />
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,6 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+
         android:id="@+id/txtMovieGenre" />
 </LinearLayout>

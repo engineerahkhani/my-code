@@ -18,6 +18,10 @@ public class MovieDetailActivity extends Activity {
         if(savedInstanceState == null){
 
             MovieDetailFragment fragment= new MovieDetailFragment();
+
+            Bundle bundle = getIntent().getBundleExtra(MainActivity.MOVIE_BUNDLE);
+            fragment.setArguments(bundle);
+
             getFragmentManager().beginTransaction()
                     .add(R.id.frame_movie_detail, fragment)
                     .commit();
