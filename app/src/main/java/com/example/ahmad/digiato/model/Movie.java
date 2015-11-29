@@ -1,5 +1,7 @@
 package com.example.ahmad.digiato.model;
 
+import android.os.Bundle;
+
 import java.util.ArrayList;
 
 public class Movie {
@@ -8,6 +10,12 @@ public class Movie {
 	private double rating;
 	private ArrayList<String> genre;
 
+	//	constants for field references
+	public static final String MOVIE_TITLE = "title";
+	public static final String THUMBNAILURL = "thumbnailUrl";
+	public static final String YEAR = "year";
+	public static final String RATING = "rating";
+	public static final String GENRE = "GENRE";
 	public Movie() {
 	}
 
@@ -59,5 +67,31 @@ public class Movie {
 	public void setGenre(ArrayList<String> genre) {
 		this.genre = genre;
 	}
+	//	Create from a bundle
+	public Movie(Bundle b) {
+		if (b != null) {
+			this.title = b.getString(MOVIE_TITLE);
+			this.thumbnailUrl = b.getString(THUMBNAILURL);
+			this.year = b.getInt(YEAR);
+			this.rating = b.getDouble(RATING);
+			this.genre = b.getStringArrayList(GENRE);
+		}
+	}
 
+	//	Package data for transfer between activities
+	public Bundle toBundle() {
+		Bundle b = new Bundle();
+		b.putString(MOVIE_TITLE, this.title);
+		b.putString(THUMBNAILURL, this.thumbnailUrl);
+		b.putDouble(RATING, this.rating);
+		b.putInt(YEAR, this.year);
+		b.putStringArrayList(RATING,this.genre);
+		return b;
+	}
+
+	//	Output flower data
+	@Override
+	public String toString() {
+		return title;
+	}
 }
