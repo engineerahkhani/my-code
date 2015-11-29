@@ -24,7 +24,7 @@ import com.example.ahmad.digiato.model.Movie;
 import com.example.ahmad.digiato.model.NavDrawerItem;
 import com.example.ahmad.simplevolleytest.R;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements MovieListFragment.Callbacks {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -145,6 +145,11 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	@Override
+	public void onItemSelected(Movie movie) {
+
 	}
 	//navigation drawer goes here
 	/**

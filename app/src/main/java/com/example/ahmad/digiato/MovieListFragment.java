@@ -120,4 +120,7 @@ public class MovieListFragment extends ListFragment {
             pDialog = null;
         }
     }
+    public interface Callbacks{
+        public void onItemSelected(Movie movie);
+    }
 }
