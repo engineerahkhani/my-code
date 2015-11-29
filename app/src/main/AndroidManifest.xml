@@ -18,8 +18,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ahmad.digiato.Container"
-            android:label="@string/title_activity_container" >
+            android:name="com.example.ahmad.digiato.MovieDetailActivity"
+            android:label="@string/title_activity_movie_detail"
+            android:parentActivityName="com.example.ahmad.digiato.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ahmad.digiato.MainActivity" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

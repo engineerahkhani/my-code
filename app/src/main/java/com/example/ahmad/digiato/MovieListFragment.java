@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends ListFragment {
+public class MovieListFragment extends ListFragment {
     // Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -36,7 +36,7 @@ public class HomeFragment extends ListFragment {
     private List<Movie> movieList = new ArrayList<Movie>();
     private ListFragment listFragmentView;
     private CustomListAdapter adapter;
-	public HomeFragment(){
+	public MovieListFragment(){
 
     }
     @Override

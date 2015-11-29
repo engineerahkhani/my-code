@@ -3,10 +3,6 @@ package com.example.ahmad.digiato;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -22,13 +18,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.ahmad.digiato.adater.CustomListAdapter;
 import com.example.ahmad.digiato.adater.NavDrawerListAdapter;
-import com.example.ahmad.digiato.app.AppController;
 import com.example.ahmad.digiato.model.Movie;
 import com.example.ahmad.digiato.model.NavDrawerItem;
 import com.example.ahmad.simplevolleytest.R;
@@ -201,7 +192,7 @@ public class MainActivity extends Activity {
 		Fragment fragment = null;
 		switch (position) {
 			case 0:
-				fragment = new HomeFragment();
+				fragment = new MovieListFragment();
 				break;
 			case 1:
 				fragment = new FindPeopleFragment();

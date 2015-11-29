@@ -5,12 +5,13 @@ import android.app.Activity;
 
 import com.example.ahmad.simplevolleytest.R;
 
-public class Container extends MainActivity {
+public class MovieDetailActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_movie_detail);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }
