@@ -1,15 +1,18 @@
 package com.example.ahmad.digiato;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.ListFragment;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -28,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MovieListFragment extends ListFragment {
+
     // Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -52,14 +56,21 @@ public class MovieListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-          adapter = new CustomListAdapter(getActivity(), movieList);
-        setListAdapter(adapter);
+        ConnectivityManager connMgr = (ConnectivityManager) getActivity()
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
 
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request
         pDialog.setMessage("Loading...");
         pDialog.show();
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // fetch data
+            adapter = new CustomListAdapter(getActivity(), movieList);
+        setListAdapter(adapter);
+
+
 
         // Creating volley request obj
         JsonArrayRequest movieReq = new JsonArrayRequest(url,
@@ -114,8 +125,11 @@ public class MovieListFragment extends ListFragment {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(movieReq);
 
-    }
 
+    } else {
+            hidePDialog();
+            Toast.makeText(getActivity(), R.string.is_onlie_false_error,Toast.LENGTH_LONG).show();
+        } }
     private void hidePDialog() {
         if (pDialog != null) {
             pDialog.dismiss();
@@ -139,4 +153,5 @@ public class MovieListFragment extends ListFragment {
         this.callbacks = (Callbacks) activity;
 
     }
+
 }

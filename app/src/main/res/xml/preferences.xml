@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:holo="http://schemas.android.com/apk/res-auto">
+    <Preference
+        android:icon="@drawable/ic_home"
+        android:selectable="false"
+        android:summary="Summary of pref"
+        android:title="title" />
+    <PreferenceCategory android:title="preference_base">
+        <EditTextPreference
+            android:id="@+id/edit_text"
+            android:dialogIcon="@drawable/ic_pages"
+            android:dialogTitle="preference_edit_text_dialog_title"
+            android:summary="preference_edit_text_summary"
+            android:title="preference_edit_text_title" />
+        <CheckBoxPreference
+            android:id="@+id/check_box"
+            android:defaultValue="false"
+            android:summaryOff="preference_check_box_summary_off"
+            android:summaryOn="preference_check_box_summary_on"
+            android:title="preference_check_box_title" />
+        <RingtonePreference
+            android:id="@+id/ringtone"
+            android:ringtoneType="all"
+            android:summary="preference_ringtone_summary"
+            android:title="preference_ringtone_title" />
+        <SwitchPreference
+            android:id="@+id/switch2"
+            android:summaryOff="preference_switch_summary_off"
+            android:summaryOn="preference_switch_summary_on"
+            android:title="preference_switch_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="preference_lists">
+        <ListPreference
+            android:id="@+id/list"
+            android:dialogIcon="@drawable/ic_people"
+            android:dialogTitle="preference_list_dialog_title"
+            android:entries="@array/skillet"
+            android:entryValues="@array/skillet"
+            android:summary="preference_list_summary"
+            android:title="preference_list_title" />
+        <MultiSelectListPreference
+            android:id="@+id/multi_select_list"
+            android:dialogIcon="@drawable/ic_photos"
+            android:dialogTitle="preference_multi_list_dialog_title"
+            android:entries="@array/nirvana"
+            android:entryValues="@array/nirvana"
+            android:summary="preference_multi_list_summary"
+            android:title="preference_multi_list_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="preference_other">
+        <PreferenceScreen
+            android:id="@+id/otherPrefs"
+            android:title="preference_unsupported">
+            <SeekBarPreference
+                android:id="@+id/seek_bar"
+                android:defaultValue="25"
+                android:max="100"
+                android:title="preference_seek_bar" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

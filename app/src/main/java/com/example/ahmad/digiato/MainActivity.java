@@ -182,6 +182,9 @@ public class MainActivity extends Activity implements MovieListFragment.Callback
 		// Handle action bar actions click
 		switch (item.getItemId()) {
 			case R.id.action_settings:
+				Intent intent = new Intent();
+				intent.setClass(this,MoviePrefsActivity.class);
+				startActivityForResult(intent,1002);
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);

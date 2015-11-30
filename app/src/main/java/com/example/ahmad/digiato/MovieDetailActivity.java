@@ -1,5 +1,8 @@
 package com.example.ahmad.digiato;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.MenuItem;
@@ -35,4 +38,5 @@ public class MovieDetailActivity extends Activity {
         }
         return true;
     }
+
 }
