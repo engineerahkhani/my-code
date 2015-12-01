@@ -7,6 +7,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.ahmad.digiato.adater.CustomListAdapter;
+import com.example.ahmad.digiato.adater.GridViewImageAdapter;
 import com.example.ahmad.digiato.app.AppController;
 import com.example.ahmad.digiato.model.Movie;
 import com.example.ahmad.simplevolleytest.R;
@@ -49,7 +51,11 @@ public class MovieListFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+//slide with view pager
+        GridViewImageAdapter gridViewImageAdapter = new GridViewImageAdapter(getActivity().getApplicationContext());
 
+       ViewPager mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
+        mViewPager.setAdapter(gridViewImageAdapter);
         return rootView;
     }
 
