@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import com.example.ahmad.simplevolleytest.R;
 
+
 /**
  * Created by AHMAD on 11/30/2015.
  */
@@ -18,6 +19,7 @@ public class GridViewImageAdapter extends PagerAdapter {
             R.drawable.pic_1,
             R.drawable.pic_2,
             R.drawable.pic_3,
+            R.drawable.pic_4,
 
     };
     Context mContext;
