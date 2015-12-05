@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -16,6 +15,7 @@ import com.example.ahmad.simplevolleytest.R;
 
 public class MovieDetailFragment extends Fragment {
     Movie movie;
+
     public MovieDetailFragment() {
     }
 
@@ -25,8 +25,8 @@ public class MovieDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         Bundle bundle = getArguments();
-        if(bundle != null && bundle.containsKey(Movie.MOVIE_TITLE)){
-             movie = new Movie(bundle);
+        if (bundle != null && bundle.containsKey(Movie.MOVIE_TITLE)) {
+            movie = new Movie(bundle);
         }
     }
 
@@ -49,20 +49,20 @@ public class MovieDetailFragment extends Fragment {
         imageView.setImageUrl(url, imageLoader);
 
         //end of volley
-        TextView txtTilte = (TextView)rootView.findViewById(R.id.txtMovieTitle);
+        TextView txtTilte = (TextView) rootView.findViewById(R.id.txtMovieTitle);
         txtTilte.setText(movie.getTitle());
 
-        TextView txtYear = (TextView)rootView.findViewById(R.id.txtMovieYear);
+        TextView txtYear = (TextView) rootView.findViewById(R.id.txtMovieYear);
         txtYear.setText(Integer.toString(movie.getYear()));
 
         TextView txtRating = (TextView) rootView.findViewById(R.id.txtMovieRating);
-        String string =Double.toString(movie.getRating());
+        String string = Double.toString(movie.getRating());
         txtRating.setText(string);
 
-        TextView  txtGenre = (TextView) rootView.findViewById(R.id.txtMovieGenre);
-        //txtGenre.setText(movie.getGenre().get(1));
-        for (int i=0; i<movie.getGenre().size();i++){
-            txtGenre.append(movie.getGenre().get(i));
+        TextView txtGenre = (TextView) rootView.findViewById(R.id.txtMovieGenre);
+       // txtGenre.setText(movie.getGanre().get(1));
+        for (int i = 0; i < movie.getGanre().size(); i++) {
+            txtGenre.append(movie.getGanre().get(i));
             txtGenre.append("\n");
         }
 

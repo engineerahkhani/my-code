@@ -1,0 +1,31 @@
+#
+# generated on 2015/12/04 03:20:15
+#
+# --table-start--
+dataClass=com.example.ahmad.digiato.model.Movie
+tableName=tblMovie
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+indexName=tblMovie_id_idx
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=thumbnailUrl
+# --field-end--
+# --field-start--
+fieldName=year
+# --field-end--
+# --field-start--
+fieldName=rating
+# --field-end--
+# --field-start--
+fieldName=ganre
+dataPersister=SERIALIZABLE
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

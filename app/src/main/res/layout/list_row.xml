@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_row_selector"
-    android:padding="8dp" >
+    android:padding="8dp">
 
     <!-- Thumbnail Image -->
     <com.android.volley.toolbox.NetworkImageView
@@ -32,7 +32,7 @@
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/thumbnail"
         android:textSize="@dimen/rating" />
-    
+
     <!-- Genre -->
     <TextView
         android:id="@+id/genre"

@@ -1,10 +1,7 @@
 package com.example.ahmad.digiato;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.ahmad.simplevolleytest.R;
@@ -18,9 +15,9 @@ public class MovieDetailActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
 
-            MovieDetailFragment fragment= new MovieDetailFragment();
+            MovieDetailFragment fragment = new MovieDetailFragment();
 
             Bundle bundle = getIntent().getBundleExtra(MainActivity.MOVIE_BUNDLE);
             fragment.setArguments(bundle);
@@ -33,7 +30,7 @@ public class MovieDetailActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
         return true;

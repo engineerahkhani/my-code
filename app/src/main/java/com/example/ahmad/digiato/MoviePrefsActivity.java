@@ -3,8 +3,6 @@ package com.example.ahmad.digiato;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.example.ahmad.simplevolleytest.R;
-
 public class MoviePrefsActivity extends Activity {
 
     @Override
